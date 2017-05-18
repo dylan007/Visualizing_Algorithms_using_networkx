@@ -1,7 +1,16 @@
+'''
+Input Format:
+Number of vertices
+Adjacencey list
+source vertex
+
+All calculations are zero indexed.
+'''
+
 import networkx as nx
 import matplotlib.pyplot as plt
 
-#Takes input and creates the graph
+#Takes input and creates the graph-----------------------------#
 def Create(G):
 	v = input()
 	adj = []
@@ -14,8 +23,13 @@ def Create(G):
 		for j in range(i+1,v):
 			if adj[i][j]>0:
 				G.add_edge(i,j,{'weight':adj[i][j]})
+#--------------------------------------------------------------#
 
-#Takes the final graph and draws it.
+
+
+
+
+#Takes the final graph and draws it.---------------------------#
 def Draw(G):
 	#create labels
 	n = len(G.nodes())
@@ -35,8 +49,13 @@ def Draw(G):
 	nx.draw_networkx_edge_labels(G,pos,edge_labels=labels,label_pos=0.35,font_size=16)
 	plt.axis("off")
 	plt.show()
+#--------------------------------------------------------------#
 
-#DFS
+
+
+
+
+#DFS-----------------------------------------------------------#
 def DFS(G,O):
 	source = input()
 	O.add_nodes_from(G.nodes())
@@ -46,8 +65,14 @@ def DFS(G,O):
 	#print attrs
 	#print O.edges()
 	nx.set_edge_attributes(O,'weight',attrs)
-	
-#main function
+#--------------------------------------------------------------#	
+
+
+
+
+
+
+#main function-------------------------------------------------#
 if __name__== "__main__":
 	#define the graph structure
 	G = nx.Graph()
